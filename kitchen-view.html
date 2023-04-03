@@ -1,0 +1,164 @@
+<style>
+  .bar {
+    background-color: #f3f3f3;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px !important;
+    border-radius: 8px;
+  }
+
+  .v-card {
+    box-shadow: none !important;
+  }
+  .order-no {
+    font-size: 12px;
+    background-color: #bddcbd;
+    padding: 2px 25px;
+    line-height: 2.5;
+    margin: 13px;
+    border-radius: 20px;
+  }
+  .v-list-item-title {
+    text-align: start;
+  }
+  .v-expansion-panel-title__icon {
+    display: none;
+  }
+
+  .v-expansion-panel {
+    background-color: transparent;
+  }
+  .v-expansion-panel__shadow {
+    box-shadow: none;
+  }
+  .v-expansion-panel-text__wrapper {
+    padding: 6px;
+    text-align: left;
+  }
+  .v-expansion-panel-title--active,
+  .v-expansion-panel-title:hover {
+    background-color: #f3f3f3;
+  }
+  .v-expansion-panel-title {
+    padding: 5px;
+  }
+  /* .v-expansion-panel-title {
+    width: auto;
+    padding: 5px;
+  }
+
+  .v-expansion-panel--active > .v-expansion-panel-title {
+    min-height: 20px;
+  } */
+  button:focus {
+    outline: none;
+  }
+</style>
+
+<div id="app" class="p-12"></div>
+<script>
+  const { createApp, ref } = Vue;
+  const { createVuetify } = Vuetify;
+
+  const vuetify = createVuetify();
+
+  const app = createApp({
+    template: `
+    <div class="row my-4">
+  <v-app>
+    <v-card class="mx-auto" width="800">
+      <v-list lines="three" select-strategy="classic">
+        <v-list-item value="order1" class="bar my-3">
+          <v-list-item-title>
+            Fried Chicken
+
+            <span class="order-no">FC-23</span>
+          </v-list-item-title>
+          <template v-slot:append="{ isActive }">
+            <v-list-item-action start class="mx-0">
+              <v-checkbox-btn :model-value="isActive"></v-checkbox-btn>
+            </v-list-item-action>
+            <v-btn variant="text" icon="mdi-menu"></v-btn>
+          </template>
+        </v-list-item>
+
+        <v-list-item value="order2" class="bar my-3">  <v-list-item-title>
+            Fried Chicken <span class="order-no">FC-26</span></v-list-item-title
+          >
+          <v-expansion-panels>
+          
+            <v-expansion-panel
+              title="+ Extra"
+              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            ></v-expansion-panel>
+          </v-expansion-panels>
+         
+         
+          <template v-slot:append="{ isActive }">
+            <v-list-item-action start class="mx-0">
+              <v-checkbox-btn ></v-checkbox-btn>
+            </v-list-item-action>
+            <v-btn variant="text" icon="mdi-menu"></v-btn>
+          </template>
+        </v-list-item>
+      </v-list>
+    </v-card>
+  </v-app>
+</div>
+      `,
+    data: () => {
+      const allCardsData = ref([]);
+      return {
+        allCardsData,
+      };
+    },
+
+    //   methods: {},
+    //   beforeMount: async function () {
+    //     // console.log("ffff");
+    //     $.ajax({
+    //       url: "/v2/api/entity/le_kitchens-v2/1/4",
+    //       headers: { apikey: "7c677625232b637a1065355630d780923bfbce76" },
+    //       type: "GET",
+    //     }).done((data) => {
+    //       console.log(data);
+    //       this.allCardsData = data["le_kitchens-v2_le_kitchens-v2_kitchens"];
+    //     });
+    //   },
+  });
+
+  app.use(vuetify).mount("#app");
+</script>
+
+<!-- <div v-for="cat in allCardsData" >
+    <P v-text="cat.kitchen_name"></P>
+    <P v-html="cat.icon"></p>
+    </div> -->
+
+<!-- <v-app>
+  <v-card class="mx-auto" width="300">
+    <v-list v-model:opened="open">
+      <v-list-item prepend-icon="mdi-home" title="Home"></v-list-item>
+
+      <v-list-group value="Users">
+        <template v-slot:activator="{ props }">
+          <v-list-item
+            v-bind="props"
+            prepend-icon="mdi-account-circle"
+            title="Users"
+          ></v-list-item>
+        </template>
+
+        <v-list-group value="Admin">
+          <template v-slot:activator="{ props }">
+            <v-list-item v-bind="props" title="Admin"></v-list-item>
+          </template>
+        </v-list-group>
+
+        <v-list-group value="Actions">
+          <template v-slot:activator="{ props }">
+            <v-list-item v-bind="props" title="Actions"></v-list-item>
+          </template>
+        </v-list-group>
+      </v-list-group>
+    </v-list>
+  </v-card>
+</v-app> -->

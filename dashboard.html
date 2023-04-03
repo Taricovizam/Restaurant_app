@@ -1,0 +1,112 @@
+<script>
+  $(document).ready(function () {
+    let url = window.location.href;
+    if (url.includes("/owner/sites/dashboard")) {
+      let newDiv = `<div class="message-block col-flex-lg-12" id="App-guide">
+                <div class="message-container">
+                	<h3 class="font-weight-bold">
+                        حول استخدام التطبيق الجديد
+                         </h3>
+                    <p>
+                        عميلنا العزيز، يوجد بعض الخطوات لكي يتم انشاء التطبيق الخاص يكم
+                        <br>
+                        </p><ul class="ml-6" style="list-style: disc;">
+                            <li>
+		                        <a class="exclude normalize" target="_blank" href="https://docs.daftra.com/tutorial/%d9%85%d8%b3%d8%ad-%d9%88%d8%aa%d8%b9%d8%af%d9%8a%d9%84-%d8%a7%d9%84%d9%81%d9%88%d8%a7%d8%aa%d9%8a%d8%b1-%d8%a7%d9%84%d8%a5%d9%84%d9%83%d8%aa%d8%b1%d9%88%d9%86%d9%8a%d8%a9/">انشاء مطابخ جديدة </a> 
+		                        <a target="_blank" href="https://docs.daftra.com/tutorial/%d9%85%d8%b3%d8%ad-%d9%88%d8%aa%d8%b9%d8%af%d9%8a%d9%84-%d8%a7%d9%84%d9%81%d9%88%d8%a7%d8%aa%d9%8a%d8%b1-%d8%a7%d9%84%d8%a5%d9%84%d9%83%d8%aa%d8%b1%d9%88%d9%86%d9%8a%d8%a9/" class="text-primary">
+		                           <span class="text-decoration-underline">اقرأ المقال</span>
+		                        </a>
+							</li>
+	                        <li>
+		                        <a target="_blank" class="exclude normalize" href="https://docs.daftra.com/tutorial/%d9%83%d9%8a%d9%81%d9%8a%d8%a9-%d8%a5%d8%b6%d8%a7%d9%81%d8%a9qr-code-%d9%84%d9%84%d9%81%d8%a7%d8%aa%d9%88%d8%b1%d8%a9/">كيفية إضافة رمز الإستجابة السريع للفاتورة الإلكترونية</a> 
+		                        <a target="_blank" href="https://docs.daftra.com/tutorial/%d9%83%d9%8a%d9%81%d9%8a%d8%a9-%d8%a5%d8%b6%d8%a7%d9%81%d8%a9qr-code-%d9%84%d9%84%d9%81%d8%a7%d8%aa%d9%88%d8%b1%d8%a9/" class="text-primary">
+		                           <span class="text-decoration-underline">اقرأ المقال</span>
+		                        </a>
+							</li>
+							<li>
+	                        	<a target="_blank" class="exclude normalize" href="https://www.daftra.com/blog/%D8%A7%D9%84%D9%81%D9%88%D8%A7%D8%AA%D9%8A%D8%B1/%D8%A7%D9%84%D9%81%D9%88%D8%A7%D8%AA%D9%8A%D8%B1-%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9/%D9%83%D9%84-%D9%85%D8%A7%D8%AA%D8%B1%D9%8A%D8%AF-%D9%85%D8%B9%D8%B1%D9%81%D8%AA%D9%87-%D8%B9%D9%86-%D8%B1%D9%85%D8%B2-%D8%A7%D9%84%D8%A5%D8%B3%D8%AA%D8%AC%D8%A7%D8%A8%D8%A9-%D8%A7%D9%84%D8%B3%D8%B1/">لماذا يظهر رمز الإستجابة السريع برموز غير واضحة </a> 
+		                        <a target="_blank" href="https://www.daftra.com/blog/%D8%A7%D9%84%D9%81%D9%88%D8%A7%D8%AA%D9%8A%D8%B1/%D8%A7%D9%84%D9%81%D9%88%D8%A7%D8%AA%D9%8A%D8%B1-%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9/%D9%83%D9%84-%D9%85%D8%A7%D8%AA%D8%B1%D9%8A%D8%AF-%D9%85%D8%B9%D8%B1%D9%81%D8%AA%D9%87-%D8%B9%D9%86-%D8%B1%D9%85%D8%B2-%D8%A7%D9%84%D8%A5%D8%B3%D8%AA%D8%AC%D8%A7%D8%A8%D8%A9-%D8%A7%D9%84%D8%B3%D8%B1/" class="text-primary">
+		                           <span class="text-decoration-underline">اقرأ المقال</span>
+		                        </a>
+							</li>
+							<li>
+								<a target="_blank" class="exclude normalize" href="https://docs.daftra.com/tutorial/%d8%aa%d9%81%d8%b9%d9%8a%d9%84-%d8%a7%d9%84%d9%81%d8%a7%d8%aa%d9%88%d8%b1%d8%a9-%d8%a7%d9%84%d8%b6%d8%b1%d9%8a%d8%a8%d9%8a%d8%a9-%d8%b9%d9%84%d9%89-%d8%a7%d9%84%d8%ad%d8%b3%d8%a7%d8%a8/">نموذج الفاتورة الضريبية</a> 
+		                        <a target="_blank" href="https://docs.daftra.com/tutorial/%d8%aa%d9%81%d8%b9%d9%8a%d9%84-%d8%a7%d9%84%d9%81%d8%a7%d8%aa%d9%88%d8%b1%d8%a9-%d8%a7%d9%84%d8%b6%d8%b1%d9%8a%d8%a8%d9%8a%d8%a9-%d8%b9%d9%84%d9%89-%d8%a7%d9%84%d8%ad%d8%b3%d8%a7%d8%a8/" class="text-primary">
+		                           <span class="text-decoration-underline">اقرأ المقال</span>
+		                        </a>
+							</li>
+							<li>
+		                        <a target="_blank" class="exclude normalize" href="https://docs.daftra.com/tutorial/%d9%83%d9%8a%d9%81%d9%8a%d8%a9-%d8%a5%d8%b6%d8%a7%d9%81%d8%a9-%d8%a7%d9%84%d8%b1%d9%82%d9%85-%d8%a7%d9%84%d8%b6%d8%b1%d9%8a%d8%a8%d9%8a-%d9%84%d9%84%d9%81%d8%a7%d8%aa%d9%88%d8%b1%d8%a9/">كيفية إضافة الرقم الضريبي للفاتورة</a> 
+		                        <a target="_blank" href="https://docs.daftra.com/tutorial/%d9%83%d9%8a%d9%81%d9%8a%d8%a9-%d8%a5%d8%b6%d8%a7%d9%81%d8%a9-%d8%a7%d9%84%d8%b1%d9%82%d9%85-%d8%a7%d9%84%d8%b6%d8%b1%d9%8a%d8%a8%d9%8a-%d9%84%d9%84%d9%81%d8%a7%d8%aa%d9%88%d8%b1%d8%a9/" class="text-primary">
+		                           <span class="text-decoration-underline">اقرأ المقال</span>
+		                        </a>
+							</li>
+							<li>
+								<a class="exclude normalize" target="_blank" href="https://docs.daftra.com/tutorial/%d8%aa%d8%b9%d8%af%d9%8a%d9%84-%d8%b9%d9%86%d9%88%d8%a7%d9%86-%d8%a7%d9%84%d9%81%d8%a7%d8%aa%d9%88%d8%b1%d8%a9-%d8%a5%d9%84%d9%89-%d9%81%d8%a7%d8%aa%d9%88%d8%b1%d8%a9-%d8%b6%d8%b1%d9%8a%d8%a8%d9%8a/">تغيير مسمى الفاتورة إلى ضريبية أو مبسطة</a> 
+	                        <a target="_blank" href="https://docs.daftra.com/tutorial/%d8%aa%d8%b9%d8%af%d9%8a%d9%84-%d8%b9%d9%86%d9%88%d8%a7%d9%86-%d8%a7%d9%84%d9%81%d8%a7%d8%aa%d9%88%d8%b1%d8%a9-%d8%a5%d9%84%d9%89-%d9%81%d8%a7%d8%aa%d9%88%d8%b1%d8%a9-%d8%b6%d8%b1%d9%8a%d8%a8%d9%8a/" class="text-primary">
+	                           <span class="text-decoration-underline">اقرأ المقال</span>
+	                        </a>
+							</li>
+                        </ul>
+                </div>
+               
+            </div>`;
+
+      let secDiv = `<div class="col-flex-lg-12" id="links">
+            <div class="form-row-flex justify-content-lg-center">
+            <div class="col-flex-6 col-flex-md-4 col-flex-xl">
+            <a href="/owner/pos_shifts/open" class="mb-4 btn-block btn-lg-s2020 btn-light-s2020 shadow btn-s2020 fs-14 fs-16-lg py-4">
+                <i class="mdi mdi-desktop-classic d-block fs-36 mb-2 text-success-s2020"></i>
+                <span>بدأ البيع</span>
+            </a>
+        </div>
+                <div class="col-flex-6 col-flex-md-4 col-flex-xl">
+            <a href="/contents/products_list" class="mb-4 btn-block btn-lg-s2020 btn-light-s2020 shadow btn-s2020 fs-14 fs-16-lg py-4">
+                <i class="mdi mdi-food d-block fs-36 mb-2 text-red-s2020"></i>
+                <span>كل المنتجات</span>
+            </a>
+        </div>
+                <div class="col-flex-6 col-flex-md-4 col-flex-xl">
+            <a href="/contents/process_content/client" class="mb-4 btn-block btn-lg-s2020 btn-light-s2020 shadow btn-s2020 fs-14 fs-16-lg py-4">
+                <i class="mdi mdi-account d-block fs-36 mb-2 text-purple-s2020"></i>
+                <span>شاشة العميل</span>
+            </a>
+        </div>
+        
+                <div class="col-flex-6 col-flex-md-4 col-flex-xl">
+            <a href="/contents/process_content/test" class="mb-4 btn-block btn-lg-s2020 btn-light-s2020 shadow btn-s2020 fs-14 fs-16-lg py-4">
+                <i class="mdi mdi-countertop d-block fs-36 mb-2 text-success"></i>
+                <span>كل المطابخ</span>
+            </a>
+        </div>
+               
+    </div>
+        </div>`;
+
+      $(
+        "#main-content > div > div.main-area.clearfix > div > ol > div.px-2 > div.form-row-flex.align-items-center"
+      ).append(newDiv);
+      $(
+        "#main-content > div > div.main-area.clearfix > div > ol > div.px-2 > div.form-row-flex.align-items-center"
+      ).append(secDiv);
+      $(
+        " #message-block , #message-ksa-invoice-guide , #payments_widget ,#recent_activities_widget, #invoices_widget,#activities_widget"
+      ).addClass("d-none");
+
+      //   $(
+      //     "#main-content > div > div.main-area.clearfix > div > ol > div.px-2 > div.form-row-flex.pt-2 > div:nth-child(1) ,#payments_widget ,#recent_activities_widget, #invoices_widget,#activities_widget  "
+      //   ).addClass("d-none");
+
+      $(
+        "#main-content > div > div.main-area.clearfix > div > ol > div.px-2 > div.form-row-flex.align-items-center > div.col-flex-lg-4.text-right.s2020 > a"
+      ).attr(
+        "href",
+        "https://newrestaurant.daftra.com/contents/process_content/test"
+      );
+
+      $(
+        "#main-content > div > div.main-area.clearfix > div > ol > div.px-2 > div.form-row-flex.align-items-center > div.col-flex-lg-4.text-right.s2020 > a > span"
+      ).text("الذهاب الي التطبيق");
+    }
+  });
+</script>

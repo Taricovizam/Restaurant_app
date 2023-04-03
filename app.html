@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kitchen View</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/vuetify@3.1.6/dist/vuetify.min.css"
+    />
+    <!-- <style scoped>
+    #app {
+      background-color: brown;
+      margin: 3em;
+      height: 400px;
+      width: 400px;
+    }
+    body {
+      direction: ltr !important;
+    }
+  </style> -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vuetify@3.1.6/dist/vuetify.min.js"></script> -->
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      const { createApp, defineComponent } = Vue;
+      // console.log(Vue);
+      const Comp2 = {
+        template: `<p>{{c}}</p>`,
+        data() {
+          return {
+            c: "11110",
+          };
+        },
+      };
+      const Comp1 = defineComponent("Comp1", {
+        template: `<p>{{c}}</p>`,
+        data() {
+          return {
+            cc: "00",
+          };
+        },
+      });
+      console.log(Comp1);
+      const myApp = {
+        template: `<p>{{j()}}</p><Comp2/><Comp1/>`,
+        components: {
+          Comp1,
+          Comp2,
+        },
+        data() {
+          return {
+            x: 32,
+          };
+        },
+        methods: {
+          j() {
+            return "2";
+          },
+        },
+      };
+      createApp(myApp).mount("#app");
+    </script>
+  </body>
+</html>

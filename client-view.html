@@ -1,0 +1,78 @@
+<style>
+  .v-locale--is-ltr .v-slider.v-input--horizontal .v-slider-thumb {
+    display: none;
+  }
+  .v-card {
+    background-color: #f3f3f3;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px !important;
+    border-radius: 3px;
+  }
+
+  .v-list-item-title {
+    display: flex;
+    justify-content: space-between;
+  }
+  .status {
+    background-color: #bddcbd;
+    border-radius: 20px;
+  }
+</style>
+
+<div id="app" class="p-12"></div>
+<script>
+  const { createApp, ref } = Vue;
+  const { createVuetify } = Vuetify;
+
+  const vuetify = createVuetify();
+
+  const app = createApp({
+    template: `
+    <v-app>
+    <div>
+        <v-card class="mx-auto my-4" width="800">
+            <v-progress-linear
+        model-value="15"
+        bg-color="green"
+        color="green"
+      ></v-progress-linear>
+      <v-list-item-title  class="py-4 px-2" >
+         <div  class=" fs-18 font-weight-semibold">  Order No. <span >FC-24 </span></div>
+           <div class="fs-14 px-2 py-1 status"> In-Progress</div>
+            </v-list-item-title>    
+    </v-card>
+    
+    <v-card class="mx-auto my-4" width="800">
+        <v-progress-linear
+        model-value="30"
+        bg-color="green"
+        color="green"
+      ></v-progress-linear>
+      <v-list-item-title class="py-4 px-2" >
+         <div  class=" fs-18 font-weight-semibold">  Order No. <span >FC-24 </span></div>
+           <div class="fs-14 px-2 py-1 status"> In-Progress</div>
+            </v-list-item-title>   
+    </v-card> 
+
+    <v-card class="mx-auto my-4" width="800">
+  <v-progress-linear
+        model-value="50"
+        bg-color="green"
+        color="green"
+      ></v-progress-linear>
+      <v-list-item-title class="py-4 px-2" >
+         <div  class=" fs-18 font-weight-semibold">  Order No. <span >FC-24 </span></div>
+           <div class="fs-14 px-2 py-1 status"> In-Progress</div>
+            </v-list-item-title>   
+    </v-card>
+    </div>
+  </v-app>
+        `,
+    data: () => ({
+      slider1: 10,
+      slider2: 50,
+      slider3: 90,
+    }),
+  });
+
+  app.use(vuetify).mount("#app");
+</script>

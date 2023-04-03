@@ -1,0 +1,77 @@
+<style>
+  i {
+    font-size: 85px;
+    opacity: 0.4;
+    color: black;
+  }
+  a:hover {
+    text-decoration: none !important;
+  }
+  .card {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px !important;
+    border-radius: 8px;
+  }
+  .card:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px !important;
+  }
+</style>
+<div id="app" class="p-8"></div>
+<script>
+  const { createApp, ref } = Vue;
+  const { createVuetify } = Vuetify;
+
+  const vuetify = createVuetify();
+
+  const app = createApp({
+    template: `<div class="row">
+    <div class="col-lg-4 p-2 text-center" v-for="card in allCardsData" >
+      <a :href="'/contents/process_content/kitchen?dep='+card.kitchen_name" :data-name="card.kitchen_name" > 
+    <v-app>
+    <v-card
+      class="mx-auto card py-12"
+      width="400"
+    >
+      <div v-html="card.icon" class="py-2" > </div>
+      <v-card-text v-text="card.kitchen_name" class="fs-24 font-weight-semibold">
+        This is content
+      </v-card-text>
+     
+
+    </v-card>
+  </v-app>
+</a>
+</div>
+  </div>
+    
+    
+    
+    `,
+    data: () => {
+      const allCardsData = ref([]);
+      return {
+        allCardsData,
+      };
+    },
+
+    //   methods: {},
+    beforeMount: async function () {
+      // console.log("ffff");
+      $.ajax({
+        url: "/v2/api/entity/le_kitchens-v2/1/4",
+        headers: { apikey: "7c677625232b637a1065355630d780923bfbce76" },
+        type: "GET",
+      }).done((data) => {
+        console.log(data);
+        this.allCardsData = data["le_kitchens-v2_le_kitchens-v2_kitchens"];
+      });
+    },
+  });
+
+  app.use(vuetify).mount("#app");
+</script>
+
+<!-- <div v-for="cat in allCardsData" >
+  <P v-text="cat.kitchen_name"></P>
+  <P v-html="cat.icon"></p>
+  </div> -->

@@ -1,0 +1,375 @@
+        <!DOCTYPE html>
+<html lang="ar">
+<head>
+    <title>{{page_title}}</title>
+    <meta charset="UTF-8"> <link rel="shortcut icon" href="/css/images/Daftra-favicon.ico" type="image/x-icon"> <link rel="shortcut icon" href="/css/images/Daftra-favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.daftra.com/templates/shop_1/css/app.min.css?v={{ css_ver }}"><script> var USER = { "client_id": {{client_id}} }; </script>
+    <script src="https://cdn.daftra.com/templates/shop_1/js/plugin_jquery.js?v={{ js_ver }}\"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vuetify@3.1.6/dist/vuetify.min.css">
+    <style scoped>
+       
+        body {
+            direction: ltr !important;
+        }
+    </style>
+    <style>
+
+        #site-header,#site-footer{
+            display: none !important;
+        }
+   
+            </style>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/vuetify@3.1.6/dist/vuetify.min.js"></script> 
+  
+</head>
+<body class="rtl">
+
+      
+<div id="site">
+
+    <header id="site-header">
+        <div class="container">
+            <div class="row align-items-center pt-4 pb-4 pt-lg-6 pb-lg-0">
+                <div class="col-lg-3 col flex-grow-0 order-1 order-lg-1">
+                    <div class="text-left">
+                        <a class="font-weight-extrabold fs-22 text-uppercase" href="/home">
+                            {{#logo}}
+                            <img src="{{logo}}" class="logo" alt="Logo">
+                            {{/logo}}
+                            {{^logo}}
+                            {{siteName}}
+                            {{/logo}}
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-1 col order-lg-2 d-none d-lg-block"></div>
+                <div class="col-lg-8 col order-2 order-lg-5 pl-0 pl-lg-3">
+                    <div class="text-right">
+                        <div class="d-inline-block">
+                            <form action="/contents/products_list">
+                                <div class="d-none d-lg-block">
+                                    <div class="input-group border-transparent border-hover-body align-items-stretch">
+                                        <input type="text" class="form-control bg-placeholder-2 border-0" placeholder="بحث في المتجر"  value="{{product_name}}" name="product_name">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-primary border-0 bg-placeholder-2 py-0 px-3 fs-18" type="submit"><i class="far fa-search text-black"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <button type="button" data-toggle="collapse" data-target="#mainSearch" aria-controls="mainSearch" aria-expanded="false" class="btn mr-2 p-0 text-dark text-hover-primary fs-14 d-inline-block d-lg-none"><i class="fas fa-search mr-lg-1"></i></button>
+                        <button type="button" class="cart-toggle-btn btn-focus-shadow-0 btn mr-2 mr-lg-0 p-0 py-lg-1 px-lg-2 py-xl-3 px-xl-5 fs-14 fs-xl-16 text-dark text-hover-primary"><i class="fas fa-shopping-cart mr-lg-1 position-relative"><span id="totalCart"></span></i><span class="d-none d-lg-inline-block">عربة التسوق</span></button>
+
+                        {{#is_logged_in}}
+                        <button type="button" class="btn-focus-shadow-0 btn mr-2 mr-lg-0 p-0 px-lg-2 px-xl-5 fs-14 fs-xl-16" disabled="disabled">
+                            <label class="text-left">
+                                مرحباً<br><span><strong>{{ logged_name }}</strong></span>
+                            </label>
+                        </button>
+                        <a href="/contents/logout" class="btn mr-2 mr-lg-0 p-1 py-sm-1 px-sm-2 py-xl-3 px-xxl-4 fs-10 fs-sm-13 fs-lg-14 fs-xl-16 btn-outline-primary">خروج</a>
+                        {{/is_logged_in}}
+
+                        {{^is_logged_in}}
+                        <a href="/contents/login" class="btn mr-2 mr-lg-0 p-1 py-sm-1 px-sm-2 py-xl-3 px-xl-4 fs-10 fs-sm-13 fs-lg-14 fs-xl-16 btn-outline-primary">دخول</a>
+                        <a href="/contents/register" class="btn mr-2 mr-lg-0 p-1 py-sm-1 px-sm-2 py-xl-3 px-xl-4 fs-10 fs-sm-13 fs-lg-14 fs-xl-16 btn-outline-primary">حساب جديد</a>
+                        {{/is_logged_in}}
+
+                        <button class="btn mr-2 mr-lg-0 p-0 text-black lh-1 d-inline-block d-lg-none" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false">
+                            <i class="far fa-bars fs-20"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mainSearch" class="collapse d-lg-none">
+            <form action="/contents/products_list" class="border-top border-black py-5 px-4 text-center">
+                <input type="text" class="form-control bg-placeholder-2 border-0" placeholder="بحث في المتجر"  value="{{product_name}}" name="product_name">
+                <button class="btn btn-primary mx-auto mt-2 py-2 px-4 fs-18" type="submit"><i class="far fa-search mr-3"></i><span class="font-weight-medium">بحث</span></button>
+            </form>
+        </div>
+        <div class="mt-lg-3">
+            <nav class="navbar navbar-expand-lg bg-primary py-0">
+                <div class="container">
+                    <div class="collapse navbar-collapse" id="mainNav">
+                        <ul class="navbar-nav p-0">
+                            {{# menuItems }}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link fs-xl-16 {{# has_children }} dropdown-toggle {{/ has_children }}" href="{{ link }}" {{# has_children }} role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" {{/ has_children }}>
+                                {{ title }}
+                                </a>
+                                {{# has_children }}
+                                <ul class="dropdown-menu">
+                                    {{/ has_children }}
+
+                                    {{# children }}
+                                    <li {{# has_grand_children }} class="dropdown-submenu" {{/ has_grand_children }}>
+                                    <a class="dropdown-item {{# has_grand_children }} dropdown-toggle {{/ has_grand_children }}" href="{{ link }}" {{# has_grand_children }} role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" {{/ has_grand_children }}>{{ title }}</a>
+
+                                    {{# has_grand_children }}
+                                    <ul class="dropdown-menu">
+                                        {{/ has_grand_children }}
+
+                                        {{# children }}
+                                        <li>
+                                            <a class="dropdown-item" href="{{ link }}">{{ title }}</a>
+                                        </li>
+                                        {{/ children }}
+
+                                        {{# has_grand_children }}
+                                    </ul>
+                                    {{/ has_grand_children }}
+
+                                    </li>
+                                    {{/ children }}
+
+                                    {{# has_children }}
+                                </ul>
+                                {{/ has_children }}
+                            </li>
+                            {{/ menuItems }}
+                        </ul>
+                        {{#authenticated}}
+                        <ul class="navbar-nav p-0 ml-auto">
+                            <li class="nav-item pl-4">
+                                <a class="nav-link fs-xl-16" href="{{dashboard_url}}">
+                                    <i class="fas fa-home-alt mr-2 d-none d-lg-inline-block"></i>
+                                    الرجوع للوحة التحكم
+                                </a>
+                            </li>
+                        </ul>
+                        {{/authenticated}}
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    {{cart:Cart.empty()}}
+    <main id="main-content">
+        <script src="/js/functions_v1.js?v={{ js_ver }}\"></script>
+        <script>
+            var currencies = JSON.parse(`{{{currencies}}}`);
+            var number_formats =JSON.parse(`{{{number_formats}}}`);
+            var shopFront = null;
+            var __countryCode = "{{{country_code}}}";
+            var __currencyCode = "{{default_currency}}";
+            var country_code = "{{{country_code}}}";
+            var currency_code = "{{default_currency}}";
+            var languageCode = "{{language}}";
+            $(function()
+            {
+                var totalCartEl = $("#totalCart");
+                var checkoutBtn = $("#checkout-btn");
+                // var cartProductsString = window.localStorage.getItem("shopFrontCart");
+                var cartProductsString = `{{{cart_products_json}}}`;
+                if(cartProductsString) {
+                    var cartProductsData = JSON.parse(cartProductsString);
+                }else{
+                    var cartProductsData = false;
+                }
+
+                $.fn.shopFrontCart = function(options) {
+                    var $elem = $(this);
+                    var $this = this;
+                    var cartItems = {};
+                    var cartItemEl = "";
+                    var defaultOptions = {
+                        emptyText: "العربة فارغة",
+                        checkoutText: "checkout",
+                        productItemEl:  "div.product",
+                        cartItemEl: ".cart-item" ,
+                        addToCartLink: "/carts/add_to_cart/",
+                        deleteFromCartLink: "/carts/remove_from_cart/",
+                        updateQuantityLink: "/carts/update_qty/",
+                        localStorageName: "shopFront",
+                    };
+
+                    // item = {image: "", id: "", price: 0, name: "", qty: 0};
+
+                    var settings = $.extend(defaultOptions, options);
+                    var localStorageName = settings.localStorageName;
+                    var $emptyTextDiv = $(".empty-cart-text");
+                    var $subTotalDiv = $(".cart-subtotal");
+                    $emptyTextDiv.hide().text(settings.emptyText);
+                    this.init = function(){
+                        cartItemEl = $elem.find(settings.cartItemEl).first().clone();
+                        $elem.find(settings.cartItemEl).first().remove();
+                        $this.updateCartTotals();
+                    }
+
+                    this.setCartData = function(cartItemsIn) {
+                        cartItems = cartItemsIn;
+                        for (productId in cartItems) {
+                            $this.updateProductCartListItem(productId);
+                        }
+                        $this.updateCartTotals();
+                    }
+
+                    $("body").on("click", ".add-to-cart-btn", function (e) {
+
+                        e.stopPropagation();
+                        qtyEl = $(this).parents(".product").find("input.qty");
+                        var qty = 1;
+                        if(qtyEl.length) {
+                            qty = parseInt(qtyEl.val());
+                        }
+                        var itemEl = $(this).parents(settings.itemSelector);
+                        var productId = itemEl.data("product-id");
+                        var cartItem = cartItems[productId];
+                        if (cartItem) {
+                            cartItems[productId].qty =parseInt(cartItems[productId].qty) + parseInt(qty);
+                        } else {
+                            var image = itemEl.data("image");
+                            if (!image || image == undefined || image == "") {
+                                image = "https://cdn.daftra.com/templates/shop_1/img/product_img.svg";
+                            }
+                            var price = parseFloat(itemEl.data("price"));
+                            var name = itemEl.data("name");
+                            cartItems[productId] = {name: name,id: productId,qty: qty, image: image, price: price};
+
+                        }
+
+                        $this.saveItemToBackEnd(productId);
+                        $this.updateProductCartListItem(productId);
+                        $("body").addClass("sidebar-active");
+                        initTooltips();
+                    });
+
+
+                    this.updateItemQty = function(productId) {
+                        productId = parseInt(productId);
+                        cartItems[productId].qty = $(".product-id-"+productId).find(".cart-item-qty").val();
+                        $this.saveItemToBackEnd(productId);
+                        $this.updateProductCartListItem(productId);
+                    };
+                    $("body").on("change", ".cart-item-qty", function () {
+                        var itemEl = $(this).parents(settings.cartItemEl);
+                        var productId = itemEl.attr("data-id");
+                        $this.updateItemQty(productId);
+                    });
+
+
+                    this.getCartTotal = function () {
+                        var total = 0;
+                        for (productId in cartItems) {
+                            total += parseInt(cartItems[productId].qty) * parseFloat(cartItems[productId].price);
+                        }
+                        return total;
+                    };
+
+                    this.getCartTotalQty = function () {
+                        var total = 0;
+                        for (productId in cartItems) {
+                            total += parseInt(cartItems[productId].qty) ;
+                        }
+                        return total;
+                    };
+
+                    this.updateCartTotals = function () {
+                        var total = $this.getCartTotal();
+                        var totalQty = $this.getCartTotalQty();
+                        $(".qty-subtotal").text(`إجمالى (${totalQty} منتج)`);
+                        $(".cart-total").text(new Intl.NumberFormat(languageCode+'-US', { style: 'currency', currency: currency_code }).format(total));
+                        // $(".cart-total").text(format_price(total,__currencyCode));
+                        /*   format_price(total,__currencyCode, function (formattedPrice) {
+                               console.log("fr price : "+formattedPrice)
+
+                           });*/
+                        if(totalQty === 0) {
+                            checkoutBtn.addClass("disabled");
+                            $subTotalDiv.hide();
+                            $emptyTextDiv.show();
+                        } else {
+                            checkoutBtn.removeClass("disabled");
+                            $subTotalDiv.show();
+                            $emptyTextDiv.hide();
+                        }
+                        totalCartEl.text(totalQty);
+                    };
+
+                    this.updateProductCartListItem = function (productId) {
+                        var cartItem = cartItems[productId];
+                        var cartListItem = $elem.find(".product-id-"+productId);
+                        if(!cartItem) {
+                            cartListItem.remove();
+                        } else {
+                            if(cartListItem.length === 0) {
+                                cartListItem = $this.getCartListItemTemplate(productId);
+                                cartListItem.show();
+                                $elem.append(cartListItem);
+                            }
+                            cartListItem.find(".cart-item-name").text(cartItem.name);
+                            cartListItem.find(".cart-item-qty").val(cartItem.qty);
+                            cartListItem.find(".cart-item-price").text(new Intl.NumberFormat(languageCode+'-US', { style: 'currency', currency: currency_code }).format(cartItem.price));
+                            //cartListItem.find(".cart-item-price").text(format_price(cartItem.price,__currencyCode));
+                            cartListItem.find(".cart-item-image").attr("src",cartItem.image);
+                            cartListItem.attr("data-id", productId);
+                        }
+                        $this.updateCartTotals();
+                    };
+
+
+                    this.getCartListItemTemplate = function (productId) {
+                        var cartListTemplate = $(cartItemEl).clone();
+                        cartListTemplate.addClass("product-id-"+productId).attr("data-id", productId);
+                        return cartListTemplate;
+                    };
+
+                    this.saveItemToBackEnd = function (productId) {
+                        var cartItem = cartItems[productId];
+                        var link  = `${settings.updateQuantityLink}${productId}/${cartItem.qty}` ;
+                        $.ajax({
+                            url: link,
+                            dataType: "JSON",
+                            success: function(data)
+                            {
+                                if(data.status == "success") {
+                                    if($(".shopping-cart-btns").length == 0)
+                                    {
+                                    }
+                                    if(data.exists != true){
+                                        //TODO
+                                    }else{
+                                        //TODO
+                                    }
+                                }else{
+                                    alert("خطأ عند اضافة المنتج");
+                                }
+                            }
+                        })
+                    };
+                    $("body").on("click", ".remove-cart-item", function () {
+                        var productId = $(this).parents(settings.cartItemEl).attr("data-id");
+                        delete cartItems[productId];
+                        $this.updateProductCartListItem(productId);
+                        var deleteUrl = settings.deleteFromCartLink + productId;
+                        $.ajax({
+                            url: deleteUrl,
+                            dataType: "JSON",
+                            success: function(data)
+                            {
+                                if(data.status != "success")
+                                {
+                                    alert("خطأ عند اضافة المنتج");
+                                }
+                            }
+                        })
+                    });
+                    this.init();
+                    return $this;
+                };
+
+                shopFront = $(".cart-items").shopFrontCart();
+                if(cartProductsData){
+                    var cartItems = {};
+                    for(key in cartProductsData) {
+                        var item = cartProductsData[key];
+                        cartItems[item.id] = {name: item.name,id: item.id,qty: item.quantity, image: item.image, price: item.price}
+                    }
+                    shopFront.setCartData(cartItems);
+
+                }
+            })
+        </script>
+    
