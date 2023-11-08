@@ -1,4 +1,402 @@
-<style>
+
+<!DOCTYPE html>
+<html lang="ar" data-site-data="{&quot;dateFormat&quot;:&quot;d\/m\/Y&quot;}">
+<head>
+    <title>new_restaurant | Kitchen</title>
+    <meta charset="UTF-8"> <link rel="shortcut icon" href="/css/images/Daftra-favicon.ico" type="image/x-icon"> <link rel="shortcut icon" href="/css/images/Daftra-favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.daftra.com/templates/shop_1/css/app.min.css?v=798"><script> var USER = { "client_id": 0 }; </script>
+    <script src="https://cdn.daftra.com/templates/shop_1/js/plugin_jquery.js?v=1080\"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vuetify/3.3.7/vuetify-labs.min.css" integrity="sha512-mXT10XT+5U5L87VSF6Dwyzg83EupATn6nn/YuC9tPwrI5MU29CG1GPc3Hdk8ztRySl3bdQm0tm54+K6uX8dpEw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style scoped>
+       
+        body {
+            direction: ltr !important;
+        }
+    </style>
+    <style>
+
+        #site-header,#site-footer{
+            display: none !important;
+        }
+   
+            </style>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/vuetify/3.3.7/vuetify.min.js" integrity="sha512-JgJTNkGiTCyZQC7Vw/tmCiMbicQOdytI7WJe4UxvSmWUVPdEu5DRUXVuAZAJUvSswybrO02e5iNdQvYHl5Z7BQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+  
+<link rel="stylesheet" href="/dist/daftra/daftra.compat.styles.css?v=798">
+<script src="/dist/daftra/daftra.compat.js?v=798"></script>
+<script src="https://cdn.daftra.com/templates/shop_1/js/plugin_easepick.js?v=798"></script>
+</head>
+<body class="rtl">
+
+      
+<div id="site">
+
+    <header id="site-header">
+        <div class="container">
+            <div class="row align-items-center pt-4 pb-4 pt-lg-6 pb-lg-0">
+                <div class="col-lg-3 col flex-grow-0 order-1 order-lg-1">
+                    <div class="text-left">
+                        <a class="font-weight-extrabold fs-22 text-uppercase" href="/home">
+                            <img src="https://cdn.daftra.com/assets/img/avatar/avatar_light_32px.svg" class="logo" alt="Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-1 col order-lg-2 d-none d-lg-block"></div>
+                <div class="col-lg-8 col order-2 order-lg-5 pl-0 pl-lg-3">
+                    <div class="text-right">
+                        <div class="d-inline-block">
+                            <form action="/contents/products_list">
+                                <div class="d-none d-lg-block">
+                                    <div class="input-group border-transparent border-hover-body align-items-stretch">
+                                        <input type="text" class="form-control bg-placeholder-2 border-0" placeholder="بحث في المتجر"  value="" name="product_name">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-primary border-0 bg-placeholder-2 py-0 px-3 fs-18" type="submit"><i class="far fa-search text-black"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <button type="button" data-toggle="collapse" data-target="#mainSearch" aria-controls="mainSearch" aria-expanded="false" class="btn mr-2 p-0 text-dark text-hover-primary fs-14 d-inline-block d-lg-none"><i class="fas fa-search mr-lg-1"></i></button>
+                        <button type="button" class="cart-toggle-btn btn-focus-shadow-0 btn mr-2 mr-lg-0 p-0 py-lg-1 px-lg-2 py-xl-3 px-xl-5 fs-14 fs-xl-16 text-dark text-hover-primary"><i class="fas fa-shopping-cart mr-lg-1 position-relative"><span id="totalCart"></span></i><span class="d-none d-lg-inline-block">عربة التسوق</span></button>
+
+                        <button type="button" class="btn-focus-shadow-0 btn mr-2 mr-lg-0 p-0 px-lg-2 px-xl-5 fs-14 fs-xl-16" disabled="disabled">
+                            <label class="text-left">
+                                مرحباً<br><span><strong>new_restaurant</strong></span>
+                            </label>
+                        </button>
+                        <a href="/contents/logout" class="btn mr-2 mr-lg-0 p-1 py-sm-1 px-sm-2 py-xl-3 px-xxl-4 fs-10 fs-sm-13 fs-lg-14 fs-xl-16 btn-outline-primary">خروج</a>
+
+
+                        <button class="btn mr-2 mr-lg-0 p-0 text-black lh-1 d-inline-block d-lg-none" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false">
+                            <i class="far fa-bars fs-20"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mainSearch" class="collapse d-lg-none">
+            <form action="/contents/products_list" class="border-top border-black py-5 px-4 text-center">
+                <input type="text" class="form-control bg-placeholder-2 border-0" placeholder="بحث في المتجر"  value="" name="product_name">
+                <button class="btn btn-primary mx-auto mt-2 py-2 px-4 fs-18" type="submit"><i class="far fa-search mr-3"></i><span class="font-weight-medium">بحث</span></button>
+            </form>
+        </div>
+        <div class="mt-lg-3">
+            <nav class="navbar navbar-expand-lg bg-primary py-0">
+                <div class="container">
+                    <div class="collapse navbar-collapse" id="mainNav">
+                        <ul class="navbar-nav p-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link fs-xl-16 " href="/home" >
+                                الرئيسية
+                                </a>
+
+
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link fs-xl-16 " href="/contents/products_list" >
+                                كل المنتجات
+                                </a>
+
+
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link fs-xl-16 " href="/contents/process_content/contact_us" >
+                                إتصل بنا
+                                </a>
+
+
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav p-0 ml-auto">
+                            <li class="nav-item pl-4">
+                                <a class="nav-link fs-xl-16" href="/owner/sites/dashboard">
+                                    <i class="fas fa-home-alt mr-2 d-none d-lg-inline-block"></i>
+                                    الرجوع للوحة التحكم
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div id="site-sidebar">
+    <div class="side-sidebar-wrap">
+        <div class="side-sidebar-header">
+            <button type="button" class="cart-toggle-btn btn p-0 font-weight-semibold d-inline-flex align-items-center fs-16 text-dark text-hover-primary"><i class="fas fa-arrow-circle-left mr-2 fs-18"></i>عربة التسوق</button>
+        </div>
+        <div class="side-sidebar-body my-5">
+            <div class="cart-items">
+
+
+                <div style="display: none" class="cart-item" >
+                    <button class="btn text-danger-30 text-hover-danger fs-16 p-0 mr-4 tip remove-cart-item" title="أزالة منتج">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                    <div class="cart-item-details">
+                        <a href="#">
+                            <img src="" width="64" height="58" alt="إسم المنتج" class="cart-item-image">
+                        </a>
+                        <div class="flex-grow-1 ml-3">
+                            <a href="#" class="text-dark"><h4 class="fs-16 font-weight-semibold cart-item-name"></h4></a>
+                            <div class="mt-2 d-flex align-items-center justify-content-between">
+                                <span class="text-alto font-weight-semibold cart-item-price"></span>
+                                <div class="cart-item-count">
+                                    <button class="btn p-0 fas fa-minus-circle fs-16 text-alto text-hover-primary minus"></button>
+                                    <input type="number" value="" class="form-control qty cart-item-qty"  min="1" step="1">
+                                    <button class="btn p-0 fas fa-plus-circle fs-16 text-alto text-hover-primary plus"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="empty-cart-text"></div>
+            <div class="cart-subtotal">
+                    <span class="font-weight-medium text-dark mr-3 qty-subtotal">
+                        إجمالى ( منتجات)
+                    </span>
+                <span  class=" cart-total font-weight-bold text-primary fs-24">
+
+                    </span>
+            </div>
+        </div>
+        <div class="side-sidebar-footer">
+            <a id="checkout-btn" href="/client/contents/order_summary" class="disabled btn btn-primary d-flex align-items-center justify-content-between btn-block px-4 py-3 text-uppercase fs-16 font-weight-medium btn-lg mt-auto">
+                <span>الدفع</span>
+                <span class="fas fa-arrow-square-right"></span>
+            </a>
+        </div>
+    </div>
+</div>
+    <main id="main-content">
+        <script src="/js/functions_v1.js?v=1080\"></script>
+        <script>
+            var currencies = JSON.parse(`{"AED":"%s\u00a0\u062f.\u0625","AFN":"%s\u00a0\u060b","BHD":"%s \u062f.\u0628","DJF":"%s\u00a0\u0641\u0631\u0646\u0643","DZD":"%s \u062f.\u062c","EGP":"%s \u062c.\u0645","SAR":"%s \u0631.\u0633","MAD":"%s \u062f\u0631\u0647\u0645\u200e\u200e","ILS":"%s \u0634.\u062c","IQD":"%s \u062f.\u0639","JOD":"%s \u062f.\u0623","KMF":"%s \u0641.\u062c.\u0642\u200f","KWD":"%s \u062f.\u0643","LBP":"%s \u0644.\u0644\u200f","LYD":"%s \u062f.\u0644\u200f","MRO":"%s \u0623.\u0645","MRU":"%s \u0623.\u0645","OMR":"%s \u0631.\u0639","QAR":"%s \u0631.\u0642","SDG":"%s \u062c.\u0633","SYP":"%s \u0644.\u0633","TND":"%s \u062f.\u062a","YER":"%s \u0631.\u064a\u200f"}`);
+            var number_formats =JSON.parse(`{"BTC":[1,",","."],"IDR":[0,",","."],"BDT":[0,".","."],"VND":[0,",","."],"SEK":[0,","," "],"MAD":[2,".",","],"PLN":[0,".",","],"TWD":[0,".",","],"COP":[0,".",","],"CZK":[2,","," "],"THB":[2,".",","],"BGN":[2,".",","],"PEN":[2,".",","],"RON":[2,",","."],"ETB":[2,",","."],"KWD":[3,".",","],"BHD":[3,".",","],"HUF":[0,","," "],"NGN":[0,".",","],"UAH":[0,","," "],"AOA":[2,",","."],"BRL":[2,",","."],"DKK":[2,",","."],"OMR":[3,".",","],"TND":[3,".",","],"GTQ":[2,".",","],"LKR":[2,".",","],"DOP":[2,".",","],"KES":[2,".",","],"RUB":[0,","," "],"BYR":[2,","," "],"DZD":[2,".",","],"EUR":[2,".",","],"IQD":[2,".",","],"CAD":[2,".",","],"USD":[2,".",","],"NPR":[2,".",","],"AED":[2,".",","],"CLP":[0,",","."],"PHP":[2,".",","],"PKR":[0,".",","],"EGP":[2,".",","],"JOD":[3,".",","],"CRC":[2,".",","],"HKD":[2,".",","],"QAR":[2,".",","],"AZN":[2,".",","],"ILS":[2,".",","],"SGD":[2,".",","],"AUD":[2,".",","],"NZD":[2,".",","],"ZAR":[2,".",","],"MYR":[2,".",","],"VEF":[2,",","."],"HRK":[2,",","."],"MXN":[2,".",","],"GHS":[2,".",","],"GBP":[2,".",","],"SAR":[2,".",","],"KZT":[2,".",","],"UZS":[0,".",","],"JPY":[0,".",","],"KRW":[0,".",","],"MMK":[0,".",","],"TRY":[2,",","."],"TRL":[2,",","."],"ARS":[2,",","."],"RSD":[2,",","."],"UYU":[2,",","."],"CHF":[2,",",""],"EUR-FR":[2,","," "],"EUR-SK":[2,","," "],"EUR-AT":[2,",","."],"EUR-SI":[2,",","."],"EUR-BE":[2,",","."],"EUR-FI":[2,","," "],"EUR-DE":[2,",","."],"EUR-GR":[2,",","."],"EUR-IE":[2,".",","],"EUR-IT":[2,",","."],"EUR-LU":[2,",","."],"EUR-NL":[2,",","."],"EUR-PT":[2,","," "],"EUR-ES":[2,",","."],"EUR-LT":[2,","," "],"LYD":[3,".",","]}`);
+            var shopFront = null;
+            var __countryCode = "SA";
+            var __currencyCode = "SAR";
+            var country_code = "SA";
+            var currency_code = "SAR";
+            var languageCode = "ar";
+            $(function()
+            {
+                var totalCartEl = $("#totalCart");
+                var checkoutBtn = $("#checkout-btn");
+                // var cartProductsString = window.localStorage.getItem("shopFrontCart");
+                var cartProductsString = `[]`;
+                if(cartProductsString) {
+                    var cartProductsData = JSON.parse(cartProductsString);
+                }else{
+                    var cartProductsData = false;
+                }
+
+                $.fn.shopFrontCart = function(options) {
+                    var $elem = $(this);
+                    var $this = this;
+                    var cartItems = {};
+                    var cartItemEl = "";
+                    var defaultOptions = {
+                        emptyText: "العربة فارغة",
+                        checkoutText: "checkout",
+                        productItemEl:  "div.product",
+                        cartItemEl: ".cart-item" ,
+                        addToCartLink: "/carts/add_to_cart/",
+                        deleteFromCartLink: "/carts/remove_from_cart/",
+                        updateQuantityLink: "/carts/update_qty/",
+                        localStorageName: "shopFront",
+                    };
+
+                    // item = {image: "", id: "", price: 0, name: "", qty: 0};
+
+                    var settings = $.extend(defaultOptions, options);
+                    var localStorageName = settings.localStorageName;
+                    var $emptyTextDiv = $(".empty-cart-text");
+                    var $subTotalDiv = $(".cart-subtotal");
+                    $emptyTextDiv.hide().text(settings.emptyText);
+                    this.init = function(){
+                        cartItemEl = $elem.find(settings.cartItemEl).first().clone();
+                        $elem.find(settings.cartItemEl).first().remove();
+                        $this.updateCartTotals();
+                    }
+
+                    this.setCartData = function(cartItemsIn) {
+                        cartItems = cartItemsIn;
+                        for (productId in cartItems) {
+                            $this.updateProductCartListItem(productId);
+                        }
+                        $this.updateCartTotals();
+                    }
+
+                    $("body").on("click", ".add-to-cart-btn", function (e) {
+
+                        e.stopPropagation();
+                        qtyEl = $(this).parents(".product").find("input.qty");
+                        var qty = 1;
+                        if(qtyEl.length) {
+                            qty = parseInt(qtyEl.val());
+                        }
+                        var itemEl = $(this).parents(settings.itemSelector);
+                        var productId = itemEl.data("product-id");
+                        var cartItem = cartItems[productId];
+                        if (cartItem) {
+                            cartItems[productId].qty =parseInt(cartItems[productId].qty) + parseInt(qty);
+                        } else {
+                            var image = itemEl.data("image");
+                            if (!image || image == undefined || image == "") {
+                                image = "https://cdn.daftra.com/templates/shop_1/img/product_img.svg";
+                            }
+                            var price = parseFloat(itemEl.data("price"));
+                            var name = itemEl.data("name");
+                            cartItems[productId] = {name: name,id: productId,qty: qty, image: image, price: price};
+
+                        }
+
+                        $this.saveItemToBackEnd(productId);
+                        $this.updateProductCartListItem(productId);
+                        $("body").addClass("sidebar-active");
+                        initTooltips();
+                    });
+
+
+                    this.updateItemQty = function(productId) {
+                        productId = parseInt(productId);
+                        cartItems[productId].qty = $(".product-id-"+productId).find(".cart-item-qty").val();
+                        $this.saveItemToBackEnd(productId);
+                        $this.updateProductCartListItem(productId);
+                    };
+                    $("body").on("change", ".cart-item-qty", function () {
+                        var itemEl = $(this).parents(settings.cartItemEl);
+                        var productId = itemEl.attr("data-id");
+                        $this.updateItemQty(productId);
+                    });
+
+
+                    this.getCartTotal = function () {
+                        var total = 0;
+                        for (productId in cartItems) {
+                            total += parseInt(cartItems[productId].qty) * parseFloat(cartItems[productId].price);
+                        }
+                        return total;
+                    };
+
+                    this.getCartTotalQty = function () {
+                        var total = 0;
+                        for (productId in cartItems) {
+                            total += parseInt(cartItems[productId].qty) ;
+                        }
+                        return total;
+                    };
+
+                    this.updateCartTotals = function () {
+                        var total = $this.getCartTotal();
+                        var totalQty = $this.getCartTotalQty();
+                        $(".qty-subtotal").text(`إجمالى (${totalQty} منتج)`);
+                        $(".cart-total").text(new Intl.NumberFormat(languageCode+'-US', { style: 'currency', currency: currency_code,minimumFractionDigits: 0 }).format(total));
+                        // $(".cart-total").text(format_price(total,__currencyCode));
+                        /*   format_price(total,__currencyCode, function (formattedPrice) {
+                               console.log("fr price : "+formattedPrice)
+
+                           });*/
+                        if(totalQty === 0) {
+                            checkoutBtn.addClass("disabled");
+                            $subTotalDiv.hide();
+                            $emptyTextDiv.show();
+                        } else {
+                            checkoutBtn.removeClass("disabled");
+                            $subTotalDiv.show();
+                            $emptyTextDiv.hide();
+                        }
+                        totalCartEl.text(totalQty);
+                    };
+
+                    this.updateProductCartListItem = function (productId) {
+                        var cartItem = cartItems[productId];
+                        var cartListItem = $elem.find(".product-id-"+productId);
+                        if(!cartItem) {
+                            cartListItem.remove();
+                        } else {
+                            if(cartListItem.length === 0) {
+                                cartListItem = $this.getCartListItemTemplate(productId);
+                                cartListItem.show();
+                                $elem.append(cartListItem);
+                            }
+                            cartListItem.find(".cart-item-name").text(cartItem.name);
+                            cartListItem.find(".cart-item-qty").val(cartItem.qty);
+                            cartListItem.find(".cart-item-price").text(new Intl.NumberFormat(languageCode+'-US', { style: 'currency', currency: currency_code,minimumFractionDigits: 0 }).format(cartItem.price));
+                            //cartListItem.find(".cart-item-price").text(format_price(cartItem.price,__currencyCode));
+                            cartListItem.find(".cart-item-image").attr("src",cartItem.image);
+                            cartListItem.attr("data-id", productId);
+                        }
+                        $this.updateCartTotals();
+                    };
+
+
+                    this.getCartListItemTemplate = function (productId) {
+                        var cartListTemplate = $(cartItemEl).clone();
+                        cartListTemplate.addClass("product-id-"+productId).attr("data-id", productId);
+                        return cartListTemplate;
+                    };
+
+                    this.saveItemToBackEnd = function (productId) {
+                        var cartItem = cartItems[productId];
+                        var link  = `${settings.updateQuantityLink}${productId}/${cartItem.qty}` ;
+                        $.ajax({
+                            url: link,
+                            dataType: "JSON",
+                            success: function(data)
+                            {
+                                if(data.status == "success") {
+                                    if($(".shopping-cart-btns").length == 0)
+                                    {
+                                    }
+                                    if(data.exists != true){
+                                        //TODO
+                                    }else{
+                                        //TODO
+                                    }
+                                }else{
+                                    alert("خطأ عند اضافة المنتج");
+                                }
+                            }
+                        })
+                    };
+                    $("body").on("click", ".remove-cart-item", function () {
+                        var productId = $(this).parents(settings.cartItemEl).attr("data-id");
+                        delete cartItems[productId];
+                        $this.updateProductCartListItem(productId);
+                        var deleteUrl = settings.deleteFromCartLink + productId;
+                        $.ajax({
+                            url: deleteUrl,
+                            dataType: "JSON",
+                            success: function(data)
+                            {
+                                if(data.status != "success")
+                                {
+                                    alert("خطأ عند اضافة المنتج");
+                                }
+                            }
+                        })
+                    });
+                    this.init();
+                    return $this;
+                };
+
+                shopFront = $(".cart-items").shopFrontCart();
+                if(cartProductsData){
+                    var cartItems = {};
+                    for(key in cartProductsData) {
+                        var item = cartProductsData[key];
+                        cartItems[item.id] = {name: item.name,id: item.id,qty: item.quantity, image: item.image, price: item.price}
+                    }
+                    shopFront.setCartData(cartItems);
+
+                }
+            })
+        </script><style>
   .bar {
     background-color: #f3f3f3;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px !important;
@@ -40,7 +438,7 @@
   .v-expansion-panel-title {
     padding: 5px;
   }
-  /* .v-expansion-panel-title {
+  /* .v-expansion-panel-title {https://newrestaurant.daftra.com/v2/api/entity/le_order-items/6
     width: auto;
     padding: 5px;
   }
@@ -50,6 +448,14 @@
   } */
   button:focus {
     outline: none;
+  }
+  .wn{
+    padding: 10px;
+    height: 40vh;
+    overflow-y: scroll;
+    border: 1px solid #2a2929;
+    border-radius: 4px;
+    box-shadow: 2px 2px 10x 2px;
   }
 </style>
 
@@ -61,104 +467,165 @@
   const vuetify = createVuetify();
 
   const app = createApp({
+
     template: `
-    <div class="row my-4">
-  <v-app>
-    <v-card class="mx-auto" width="800">
-      <v-list lines="three" select-strategy="classic">
-        <v-list-item value="order1" class="bar my-3">
-          <v-list-item-title>
-            Fried Chicken
+        <div class="d-flex flex-column align-items-center text-align-center">
+    <v-app>
+        <div class="text-h3 text-center">قائمة الطلبات الحالية</div>
+            <div class="text-h5 px-3 py-2 my-3 text-center" style="background: #dedede;border-radius:8px;box-shadow: 1px 1px 2px #000">
+              <sub v-text="'(طلب'+' '+allItems.length+')'"></sub>
+              <span>(الطلبات تأتي من جانب الكاشير بمجرد إنشاء فاتورة) 
+                </span>
+                </div>
+          <v-list class="wn">
+            <v-list-item transition="scroll-y-transition" :ripple="false" class="bar my-3" v-for="item in allItemsList" class="mx-auto" width="800" :value="item">
 
-            <span class="order-no">FC-23</span>
-          </v-list-item-title>
-          <template v-slot:append="{ isActive }">
-            <v-list-item-action start class="mx-0">
-              <v-checkbox-btn :model-value="isActive"></v-checkbox-btn>
+            <v-list-item-title class="text-h6" v-text="item.item_name"></v-list-item-title>
+            <v-progress-circular v-if="loading"
+      indeterminate
+      color="green"
+    ></v-progress-circular>
+
+            <div class="" style="text-align:left;">Order No. 
+            <span class="" v-html="item.order_no"></span>
+          </div>
+              <div class="d-flex justify-content-between">
+              
+<v-list-item-action start class="mx-0">
+              <v-checkbox-btn v-model="finishedItems" :value="item" @change="updateLists(item.id)"></v-checkbox-btn>
             </v-list-item-action>
-            <v-btn variant="text" icon="mdi-menu"></v-btn>
-          </template>
-        </v-list-item>
+                <div>
+              <div class="" v-html="item.item_qty"></div>
+              Item(s)
+              </div>
+          </div>
 
-        <v-list-item value="order2" class="bar my-3">  <v-list-item-title>
-            Fried Chicken <span class="order-no">FC-26</span></v-list-item-title
-          >
-          <v-expansion-panels>
+        </v-list-item>
+             
+         </v-list>
+
+      
+      <div class="text-h5 px-3 py-2 mt-6 mb-3 text-center" style="background: #dedede;border-radius:8px;box-shadow: 1px 1px 2px #000">تم الانتهاء والتسليم</div>
+
+      <v-list class="wn" lines="three" select-strategy="classic">
+            <v-list-item disabled  transition="scroll-y-transition" :ripple="false" class="bar my-3" v-for="item in finishedItems" class="mx-auto" width="800" :value="item">
+              
+              <div class="d-flex justify-content-between align-items-center">
+
+              <v-list-item-title class="text-h6" v-text="item.item_name"></v-list-item-title>
+
+            <div class="" style="text-align:left;">Order No. 
+            <span class="" v-html="item.order_no"></span>
+          </div>
+          <div>
+              <span class="" v-html="item.item_qty"></span>
+              Item(s)
+              </div>
+
+<v-list-item-action start class="mx-0">
+              <v-checkbox-btn v-model="x"></v-checkbox-btn>
+            </v-list-item-action>
           
-            <v-expansion-panel
-              title="+ Extra"
-              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-            ></v-expansion-panel>
-          </v-expansion-panels>
-         
-         
-          <template v-slot:append="{ isActive }">
-            <v-list-item-action start class="mx-0">
-              <v-checkbox-btn ></v-checkbox-btn>
-            </v-list-item-action>
-            <v-btn variant="text" icon="mdi-menu"></v-btn>
-          </template>
-        </v-list-item>
-      </v-list>
-    </v-card>
-  </v-app>
-</div>
-      `,
-    data: () => {
-      const allCardsData = ref([]);
-      return {
-        allCardsData,
-      };
-    },
+          </div>
 
-    //   methods: {},
-    //   beforeMount: async function () {
-    //     // console.log("ffff");
-    //     $.ajax({
-    //       url: "/v2/api/entity/le_kitchens-v2/1/4",
-    //       headers: { apikey: "7c677625232b637a1065355630d780923bfbce76" },
-    //       type: "GET",
-    //     }).done((data) => {
-    //       console.log(data);
-    //       this.allCardsData = data["le_kitchens-v2_le_kitchens-v2_kitchens"];
-    //     });
-    //   },
+        </v-list-item>
+             
+         </v-list>
+ 
+    </v-app>
+  </div>
+        `,
+    
+    data: () => ({
+      allItems: [],
+      allItemsList: [],
+      finishedItems: [],
+      x: true,
+      kitchens: null,
+      kitchenCats: [],
+      loading:false
+    }
+    ),
+
+      methods: {
+        FetchAllKitchens: function(){
+          // $.ajax({
+          //       url: "/v2/api/entity/le_kitchens/list?per_page=1000",
+          //       type:"GET",
+          //       headers: {apikey: "7c677625232b637a1065355630d780923bfbce76"},
+          //   }).done(data=>{
+              
+          //   this.kitchens = data.data.map(kit=>({kitchen: kit.kitchen_name, cats: kit.selected_kitchens.split(", ")}))
+          //   })
+          const URL = location.search.substring(1)
+        const URLparams = JSON.parse('{"' + decodeURI(URL).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
+        const selectedKitchen = URLparams.dep
+          $.ajax({
+                url: "/v2/api/entity/le_kitchens/list?per_page=1000",
+                type:"GET",
+                headers: {apikey: "7c677625232b637a1065355630d780923bfbce76"},
+            }).done(data=>{
+              
+            this.kitchens = data.data.map(kit=>({kitchen: kit.kitchen_name, cats: kit.selected_kitchens.split(", ")}))
+        const thisKitchen = this.kitchens.filter(x=>x.kitchen == selectedKitchen)
+        this.kitchenCats = thisKitchen[0]?.cats 
+        // console.log(this.kitchens, thisKitchen, selectedKitchen)
+      })
+        
+        },
+        FetchAllCurrOrders: function(kCats){
+          
+            $.ajax({
+                url: "/v2/api/entity/le_order-items/list?per_page=1000",
+                type:"GET",
+                headers: {apikey: "7c677625232b637a1065355630d780923bfbce76"},
+            }).done(data=>{
+                this.allItems = kCats ? data.data.filter(item => item.status != 1 && kCats.includes(item.item_category)) : data.data.filter(item => item.status != 1)
+                this.allItemsList = this.allItems.slice(0,50)
+                console.log(this.allItems)
+                console.log(this.allItemsList)
+            })
+      },
+      updateLists: function(id){
+        
+        this.loading = true
+        $.ajax({
+                url: `/v2/api/entity/le_order-items/${id}`,
+                type:"PUT",
+                contentType: "application/json",
+                accept: "application/json",
+                headers: {apikey: "7c677625232b637a1065355630d780923bfbce76"},
+                data: JSON.stringify({
+                    "id": id,
+                    "status": 1
+                })
+            }).done((res)=>{
+              // this.allItemsList = data.data.filter(item => item.status != 1).slice(0,5)
+              this.allItemsList = this.allItemsList.filter(item => !this.finishedItems.includes(item))
+              console.log(this.allItemsList, res)
+            }).fail((err)=>{
+
+              console.log(err)})
+      }
+    },
+      beforeMount: function() {
+        this.FetchAllKitchens()
+      setInterval(()=>{
+        console.log("update")
+        this.loading = false
+
+        this.FetchAllCurrOrders(this.kitchenCats)
+      },5000)
+    },
+    computed: function(){
+      // this.updateLists()
+    }
+
   });
 
   app.use(vuetify).mount("#app");
 </script>
 
-<!-- <div v-for="cat in allCardsData" >
-    <P v-text="cat.kitchen_name"></P>
-    <P v-html="cat.icon"></p>
-    </div> -->
+</body>
+</html>
 
-<!-- <v-app>
-  <v-card class="mx-auto" width="300">
-    <v-list v-model:opened="open">
-      <v-list-item prepend-icon="mdi-home" title="Home"></v-list-item>
-
-      <v-list-group value="Users">
-        <template v-slot:activator="{ props }">
-          <v-list-item
-            v-bind="props"
-            prepend-icon="mdi-account-circle"
-            title="Users"
-          ></v-list-item>
-        </template>
-
-        <v-list-group value="Admin">
-          <template v-slot:activator="{ props }">
-            <v-list-item v-bind="props" title="Admin"></v-list-item>
-          </template>
-        </v-list-group>
-
-        <v-list-group value="Actions">
-          <template v-slot:activator="{ props }">
-            <v-list-item v-bind="props" title="Actions"></v-list-item>
-          </template>
-        </v-list-group>
-      </v-list-group>
-    </v-list>
-  </v-card>
-</v-app> -->
